@@ -5,6 +5,13 @@ terraform {
       version = "~> 3.27"
     }
   }
+  backend "s3" {
+    bucket         = "alzhe-terraform-state"
+    key            = "alzhe-test/terraform.tfstate"
+    region         = "us-east-1"
+//    dynamodb_table = "terraform-up-and-running-locks"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
