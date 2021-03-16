@@ -8,14 +8,14 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-042e8287309f5df03"
+  ami           = "ami-013f17f36f8b1fefb"
   instance_type = "t2.micro"
 
   tags = {
-    Name = "alzhe-test-temporary-instance. Will be removed soon."
+    Name = var.instance_name 
   }
 }
