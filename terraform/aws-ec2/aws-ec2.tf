@@ -19,10 +19,11 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
+  for_each = toset(var.instance_name)
   ami           = "ami-013f17f36f8b1fefb"
   instance_type = "t2.micro"
 
   tags = {
-    Name = var.instance_name 
+    Name = each.value
   }
 }
